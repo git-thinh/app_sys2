@@ -5,6 +5,12 @@ using System.Threading;
 
 namespace app_sys
 {
+    public interface IThreadMsg
+    {
+        void Execute(MSG msg);
+        void Stop();
+    }
+
     public class ThreadMsgPara
     {
         private readonly Publisher<MSG> _publisher;
@@ -19,7 +25,7 @@ namespace app_sys
         public ManualResetEvent ResetEvent { get { return _resetEvent; } }
     }
 
-    public class ThreadMsg
+    public class ThreadMsg : IThreadMsg
     {
         private readonly Thread _threadCrawler;
         private readonly ManualResetEvent _threadEvent;
@@ -38,8 +44,9 @@ namespace app_sys
                 ThreadMsgPara tm = (ThreadMsgPara)evt;
                 while (_exit == false)
                 {
-                    action(_msg);
                     tm.ResetEvent.WaitOne();
+                    if (_exit == false)
+                        action(_msg);
                 }
             }));
             _threadCrawler.Start(new ThreadMsgPara(null, _resetEvent));

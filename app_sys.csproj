@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app.cs" />
+    <Compile Include="model\MessageHelper.cs" />
     <Compile Include="model\oCategory.cs" />
     <Compile Include="model\Publisher.cs" />
     <Compile Include="English\el.cs" />
@@ -62,7 +63,9 @@
     <Compile Include="English\Paragraph.cs" />
     <Compile Include="English\TiengViet.cs" />
     <Compile Include="English\Translator.cs" />
-    <Compile Include="Form\fMain.cs" />
+    <Compile Include="Form\fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Html\HtmlAgilityPack\crc32.cs" />
     <Compile Include="Html\HtmlAgilityPack\EncodingFoundException.cs" />
     <Compile Include="Html\HtmlAgilityPack\HtmlAttribute.cs" />
@@ -182,6 +185,7 @@
     <Compile Include="View\vListItem.cs" />
     <Compile Include="View\vTreeView.cs" />
     <Compile Include="View\vToolbar.cs" />
+    <Compile Include="_CONST.cs" />
     <Compile Include="_NOTE.cs" />
   </ItemGroup>
   <ItemGroup>
