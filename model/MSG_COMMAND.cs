@@ -1,0 +1,19 @@
+﻿namespace app_sys
+{
+    public enum MSG_COMMAND
+    {
+        KEY_CUSTOM,
+
+        CRAWLER_RESPONSE,
+        CRAWLER_REQUEST_URL,
+        CRAWLER_REQUEST_URLs,
+
+        CATEGORY_LOAD_ALL,
+        CATEGORY_CREATE_NEW,
+        CATEGORY_EDIT,
+        CATEGORY_REMOVE,
+
+        TRANSLATE_GOOGLE_WORDS_REQUEST,
+        TRANSLATE_GOOGLE_WORDS_RESPONSE,
+    }
+}
