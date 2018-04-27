@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -19,7 +20,13 @@ namespace app_sys
                     COPYDATASTRUCT mystr = new COPYDATASTRUCT();
                     Type mytype = mystr.GetType();
                     mystr = (COPYDATASTRUCT)m.GetLParam(mytype);
-                    MessageBox.Show(mystr.lpData);
+                    string func = mystr.lpData;
+
+                    MessageBox.Show(func);
+                    Type thisType = this.GetType();
+                    MethodInfo method = thisType.GetMethod(func);
+                    object[] para = null;
+                    if (method != null) method.Invoke(this, para);
                     break;
             }
             base.WndProc(ref m);

@@ -47,6 +47,7 @@ namespace app_sys
                     tm.ResetEvent.WaitOne();
                     if (_exit == false)
                         action(_msg);
+                    tm.ResetEvent.Reset();
                 }
             }));
             _threadCrawler.Start(new ThreadMsgPara(null, _resetEvent));
